@@ -1,0 +1,21 @@
+{% extends 'employer/base.html' %}
+{% block title %} Register {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-6 offset-md-3">
+                <div class="border">
+                    <h3>Register</h3>
+                    <hr>
+                    <form action="{% url 'register' %}" method="post">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <input type="submit" class="btn btn-primary" value="Register">
+                        <p>You already have a account? <a class="btn btn-link" href="{% url 'login' %}">Login</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
